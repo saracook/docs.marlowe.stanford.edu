@@ -17,6 +17,10 @@
     - title: "Filesystems"
       url: "/getting-started/filesystems.html"
   
+- title: "SLURM on Marlowe"
+  url: "/slurm.html"
+  id: slurm
+
   # Env Modules
 - title: "Software"
   id: software

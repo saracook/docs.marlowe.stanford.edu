@@ -6,6 +6,7 @@ output: web
 title: "Marlowe User Documentation"
 image: "/assets/globus_square.png"
 site_title: Marlowe User Documentation
+baseurl: "/"
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
 owner:
