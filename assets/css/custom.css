@@ -445,6 +445,12 @@ pre.highlight {
   word-wrap:normal;
 }
 
+pre.highlight code,
+pre code {
+    white-space : pre-wrap !important;
+    word-break: break-word;
+  }
+
 pre.highlight button.copy {
   position: absolute;
   right: 1em;

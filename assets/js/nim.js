@@ -1,7 +1,7 @@
 $(document).ready(function() {
       //the fields that will be replaced, they must match ids of input fields
       const fields = ['projectID', 'SUNetID', 'APIkey', 'partition'];
-      console.log('field check', fields);
+      //console.log('field check', fields);
       
 
       fields.forEach((element, index, array) => {
@@ -9,7 +9,6 @@ $(document).ready(function() {
       });
       //drop buttons into code blocks
       addButtons();
-      addLanguageHeading();
 
       generateTips(fields);
 
@@ -39,28 +38,19 @@ $(document).ready(function() {
         removeButtons();
         var codeBlocks = document.querySelectorAll('div.highlight code');
 
-const listItems = document.querySelectorAll('div.highlight');
-
-const textArray = [];
-
-for (const item of listItems) {
-  textArray.push(item.textContent);
-}
-
-console.log('textArray',textArray); 
-        console.log('codeBlocks', codeBlocks);
+        //console.log('codeBlocks', codeBlocks);
         for (const codeBlock of codeBlocks) {
 
           var cleanText = codeBlock.innerText;
-          console.log('cleanText start', cleanText);
+          //console.log('cleanText start', cleanText);
           for (i in fields) {
             var field = fields[i]
             var value = getValue(field);
             var matchStr = '[' + field + ']';
-            console.log('value', field + ' v ' + value);
-            console.log('fields loop', field);
+            //console.log('value', field + ' v ' + value);
+            //console.log('fields loop', field);
             cleanText = replaceText(matchStr, value, cleanText);
-            console.log('cleanText after replaceText', cleanText);
+            //console.log('cleanText after replaceText', cleanText);
           }
 
           //codeBlock.appendChild(document.createTextNode(cleanText));
@@ -70,28 +60,19 @@ console.log('textArray',textArray);
         addButtons();
 }
         function replaceText(matchText, replaceText, cleanText) {
-          console.log('cleanText in replaceText', cleanText);
+          //console.log('cleanText in replaceText', cleanText);
           var newStr = '';
           if (cleanText){
            newStr = cleanText.replace(matchText, replaceText);
           }else{
-            console.log("this ain't it champ",matchText);
+            //console.log("this ain't it champ",matchText);
           }
           
           return newStr
         }
 
-        function addLanguageHeading() {
-          console.log('LANGUAGE');
-          var codeBlocks = document.querySelectorAll('div.highlighter-rouge');
-          codeBlocks.forEach(function(codeBlock) {
-            var language = codeBlock.dataset.language;
-            console.log('codeBlock language', language);
-          });
-        }
-
         function addButtons() {
-          var codeBlocks = document.querySelectorAll('pre.highlight');
+          var codeBlocks = document.querySelectorAll('div.language-bash pre.highlight');
           codeBlocks.forEach(function(codeBlock) {
             var copyButton = document.createElement('button');
             copyButton.className = 'copy';
@@ -99,7 +80,7 @@ console.log('textArray',textArray);
             copyButton.ariaLabel = 'Copy code to clipboard';
             copyButton.innerText = 'Copy';
             codeBlock.append(copyButton);
-            console.log('codeBlock', codeBlock);
+            //console.log('codeBlock', codeBlock);
             //codeBlock.addClass('copyBtn');
             copyButton.addEventListener('click', function() {
               var code = codeBlock.querySelector('code').innerText.trim();
@@ -123,10 +104,10 @@ console.log('textArray',textArray);
         }
 
         function getValue(field) {
-          console.log('getting value', field);
+          //console.log('getting value', field);
           var selector = '#' + field;
           var formValue = $(selector).val();
-          console.log('form value', formValue);
+          //console.log('form value', formValue);
           var matchText = field
           //I don't love this, should have a prettier matchText for v2
           if (!formValue) {
@@ -135,13 +116,13 @@ console.log('textArray',textArray);
 
           }
           saveToSession(field, formValue);
-          console.log('saving value', formValue);
+          //console.log('saving value', formValue);
           return formValue;
         }
 
         function checkPreFill(field) {
           var saved = checkSession(field);
-          console.log('saved', saved);
+          //console.log('saved', saved);
           if (saved != field) {
             selector = '#' + field;
             autoFillSession(selector, saved);
@@ -149,7 +130,7 @@ console.log('textArray',textArray);
         }
 
         function saveToSession(field, fieldValue) {
-          console.log('sessionStorage.setItem', field + ' ' + fieldValue);
+          //console.log('sessionStorage.setItem', field + ' ' + fieldValue);
           sessionStorage.setItem(field, fieldValue);
         }
 
