@@ -360,9 +360,7 @@ svg.su-link--external {
 }
 
 .su-hero,
-.su-hero__media {
-
-}
+.su-hero__media {}
 
 #copyBtn.funkytown {
   animation: fadeIn 1s
@@ -427,16 +425,55 @@ a {
   color: #00538f
 }
 
-.form-group .replace{
+.form-group .replace {
   background-color: #f4f4f4
 }
 
-.form-group .replace p{
-margin:4px 1em;
+.form-group .replace p {
+  margin: 4px 1em;
 }
 
 .su-local-footer__action-links a.su-link--external:after {
-    -webkit-mask: url(../assets/arrow-up-right.svg)no-repeat 0 0;
-    mask: url(../assets/arrow-up-right.svg)no-repeat 0 0;
-    mask-size: .7em .7em;
+  -webkit-mask: url(../assets/arrow-up-right.svg)no-repeat 0 0;
+  mask: url(../assets/arrow-up-right.svg)no-repeat 0 0;
+  mask-size: .7em .7em;
+}
+
+pre.highlight {
+  position: relative;
+  padding-top:2em;
+  word-wrap:normal;
+}
+
+pre.highlight button.copy {
+  position: absolute;
+  right: 1em;
+  top: .5em;
+  background: transparent;
+  color: black;
+  padding: .25em .5em;
+  border: 1px solid #333;
+  font-size:.8em;
+  border-radius: 3px;
+}
+
+pre.highlight>button {
+  opacity: .75;
+}
+
+pre.highlight:hover>button {
+  opacity: 1;
+  text-decoration: none;
+}
+
+pre.highlight>button.bling{
+  background: #333;
+  color:white;
+}
+
+pre.highlight>button:active,
+pre.highlight>button:focus {
+  opacity: 1;
+  text-decoration: none;
+  box-shadow:none;
 }
